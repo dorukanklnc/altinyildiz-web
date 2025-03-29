@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Altınyıldız Giriş/Çıkış Formu</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light d-flex align-items-center justify-content-center" style="height: 100vh;">
+  <div class="card shadow p-4" style="max-width: 400px; width: 100%;">
+    <h4 class="mb-3 text-center">Giriş/Çıkış Formu</h4>
+    <form action="/submit" method="POST">
+      <div class="mb-3">
+        <label for="name" class="form-label">İsim</label>
+        <input type="text" id="name" name="name" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="role" class="form-label">Görev</label>
+        <select id="role" name="role" class="form-control" required>
+          <option value="">Seçiniz</option>
+          <option value="Öğretmen">Öğretmen</option>
+          <option value="Müdür">Müdür</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="type" class="form-label">İşlem</label>
+        <select id="type" name="type" class="form-control" required>
+          <option value="">Seçiniz</option>
+          <option value="Giriş">Giriş</option>
+          <option value="Çıkış">Çıkış</option>
+        </select>
+      </div>
+      <input type="hidden" id="time" name="time">
+      <button type="submit" class="btn btn-primary w-100">Gönder</button>
+    </form>
+  </div>
+  <script>
+    document.querySelector("form").addEventListener("submit", function() {
+      document.getElementById("time").value = new Date().toISOString();
+    });
+  </script>
+</body>
+</html>
