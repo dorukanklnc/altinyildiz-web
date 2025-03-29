@@ -125,6 +125,9 @@ app.get('/download/csv', auth, async (req, res) => {
   res.attachment('kayitlar.csv');
   return res.send(csv);
 });
+app.get("/", (req, res) => {
+  res.redirect("/login.html");
+});
 
 app.listen(3000, () => {
   console.log('Sunucu http://localhost:3000 adresinde çalışıyor');
